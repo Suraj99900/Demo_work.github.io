@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main__container{
+    width: 100vw;
+    min-height: 100vh;
+    background: #161623;
+    z-index: -101;
+}
+
+.content::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#f00,#f0f);
+    clip-path: circle(30% at left 10%);
+    /* background-size: 400%; */
+    /* filter: blur(50px); */
+    animation: anim_2 20s linear both infinite;
+}
+
+.content::after
+{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#2196f3,#e91e63);
+    clip-path: circle(50% at right 80%);
+    animation: anim_3 20s linear both infinite;
+}
+
+@keyframes anim_2 {
+    0%{
+        clip-path: circle(30% at left 10%);
+    }
+    100%{
+        clip-path: circle(50% at right 80%);
+    }
+}
+@keyframes anim_3 {
+    0%{
+        clip-path: circle(50% at right 80%);
+    }
+    100%{
+        clip-path: circle(30% at left 10%);
+    }
+}
+
+.main__container .content{
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    position: relative;
+}
+
+.content .card__items .data_center{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 011;
+}
+
+.content .card__items .card{
+    flex: 0 0 20%;
+    max-width: 20%;
+    max-height: 500px;
+    margin: 0 20px;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    transition: all 0.5s linear;
+    overflow: hidden;
+    
+}
+
+
+
+
+.content .card__items .card:hover .img-box,
+.content .card__items .card:hover p,
+.content .card__items .card:hover .btn
+{
+    opacity: 1;
+    margin-top: 0;
+    filter: blur(0);
+}
+
+
+
+.img-box{
+    margin-top: 280px;
+    width: 100%;
+    height: 350px;
+    padding: 10px;
+    transition: all 0.3s linear;
+}
+
+.content .card__items .card .img-box img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    filter: blur(1px);
+}
+
+.card h2{
+    /* width: 100%; */
+    position: absolute;
+    font-size: 100px;
+    color: rgba(255,255,255,0.8);
+    /* bottom: 20%; */
+    top: 0;
+    filter: blur(2px);
+    transition: all 0.3s linear;
+}
+
+.card p{
+    margin: 10px 0;
+    text-align: justify;
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.btn{
+    opacity: 0;
+    position: relative;
+    padding: 10px 0;
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(30deg,#f00,#f0f,#2196f3,#e91e63,#f00,#f0f,#2196f3,#e91e63);
+    background-size: 400%;
+    transition: all 0.5s;
+    color: rgba(255,255,255,0.6);
+    font-size: 18px;
+}
+
+.btn:hover {
+    transform: scaleX(1.5);
+}
+
+
+@media (max-width:1199px) {
+    .content .card__items .card{
+        height: 380px;
+    }
+
+}
+
+
+@media (max-width:991px) {
+
+    .content .card__items .card{
+        height:auto;
+        flex: 0 0 45%;
+        max-width: 45%;
+        margin: 15px 20px;
+    }
+
+    .content .card__items .card .img-box img{
+        border-radius: 0;
+        width: 100%;
+        /* height: auto; */
+        filter: blur(0px);
+        border-radius: 50%;
+    }
+
+    .img-box{
+        margin-top: 200px;
+        width: 100%;
+        /* height: auto; */
+        padding: 10px;
+        transition: all 0.3s linear;
+    }
+    .main__container{
+        height: 300vh;
+    }
+
+    
+
+}
+
+@media (max-width:767px) {
+
+    .content .card__items .card{
+        height: auto;
+        flex: 0 0 70%;
+        max-width: 70%;
+        margin: 20px 0px;
+
+    }
+
+    .main__container{
+        height: 300vh;
+    }
+
+    .content .card__items .card:hover .img-box,
+.content .card__items .card:hover p,
+.content .card__items .card:hover .btn
+{
+    opacity: 1;
+    margin-top: -50px;
+    filter: blur(0);
+    margin: 10px 0;
+}
+}
